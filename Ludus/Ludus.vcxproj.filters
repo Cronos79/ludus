@@ -7,25 +7,41 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ludus.h" />
-    <ClInclude Include="src\Ludus\Application.h">
+    <ClInclude Include="src\Ludus\Core\Application.h">
       <Filter>Ludus</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ludus\Core.h">
+    <ClInclude Include="src\Ludus\Core\Core.h">
       <Filter>Ludus</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ludus\EntryPoint.h">
+    <ClInclude Include="src\Ludus\Core\EntryPoint.h">
       <Filter>Ludus</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ludus\Log.h">
+    <ClInclude Include="src\Ludus\Core\Log.h">
       <Filter>Ludus</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ludus\Events\Event.h" />
+    <ClInclude Include="src\Ludus\Events\KeyEvent.h" />
+    <ClInclude Include="src\Ludus\Core\Input.h" />
+    <ClInclude Include="src\Ludus\Core\KeyCodes.h" />
+    <ClInclude Include="src\Ludus\Core\MouseCodes.h" />
+    <ClInclude Include="src\ldpch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Ludus\Events\MouseEvent.h" />
+    <ClInclude Include="src\Ludus\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Ludus\Core\Base.h" />
+    <ClInclude Include="src\Ludus\Core\PlatformDetection.h" />
+    <ClInclude Include="src\Ludus\Core\Assert.h" />
+    <ClInclude Include="src\Ludus\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ludus\Application.cpp">
+    <ClCompile Include="src\Ludus\Core\Application.cpp">
       <Filter>Ludus</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ludus\Log.cpp">
+    <ClCompile Include="src\Ludus\Core\Log.cpp">
       <Filter>Ludus</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ludus\Core\Input.cpp" />
+    <ClCompile Include="src\ldpch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
