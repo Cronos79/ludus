@@ -1,9 +1,11 @@
 #include <Ludus.h>
+#include <Ludus/Core/EntryPoint.h>
 
 class SandBox : public Ludus::Application
 {
 public:
-	SandBox()
+	SandBox(const Ludus::ApplicationSpecification& specification)
+		: Ludus::Application(specification)
 	{
 
 	}
@@ -13,7 +15,12 @@ public:
 	}
 };
 
-Ludus::Application* Ludus::CreateApplication()
+Ludus::Application* Ludus::CreateApplication(Ludus::ApplicationCommandLineArgs args)
 {
-	return new SandBox();
+	ApplicationSpecification spec;
+	spec.Name = "Sandbox";
+	spec.WorkingDirectory = "../Hazelnut";
+	spec.CommandLineArgs = args;
+
+	return new SandBox(spec);
 }

@@ -76,9 +76,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>ldpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LD_PLATFORM_WINDOWS;LD_BUILD_DLL;LD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LD_BUILD_DLL;LD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -99,9 +100,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>ldpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LD_PLATFORM_WINDOWS;LD_BUILD_DLL;LD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LD_BUILD_DLL;LD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -125,9 +127,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>ldpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>LD_PLATFORM_WINDOWS;LD_BUILD_DLL;LD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LD_BUILD_DLL;LD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -150,31 +153,28 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\ldpch.h" />
     <ClInclude Include="src\Ludus.h" />
     <ClInclude Include="src\Ludus\Core\Application.h" />
     <ClInclude Include="src\Ludus\Core\Assert.h" />
     <ClInclude Include="src\Ludus\Core\Base.h" />
-    <ClInclude Include="src\Ludus\Core\Core.h" />
+    <ClInclude Include="src\Ludus\Core\EntryPoint.h" />
     <ClInclude Include="src\Ludus\Core\Input.h" />
     <ClInclude Include="src\Ludus\Core\KeyCodes.h" />
+    <ClInclude Include="src\Ludus\Core\Log.h" />
     <ClInclude Include="src\Ludus\Core\MouseCodes.h" />
-    <ClInclude Include="src\Ludus\Core\EntryPoint.h" />
     <ClInclude Include="src\Ludus\Core\PlatformDetection.h" />
     <ClInclude Include="src\Ludus\Debug\Instrumentor.h" />
     <ClInclude Include="src\Ludus\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Ludus\Events\Event.h" />
     <ClInclude Include="src\Ludus\Events\KeyEvent.h" />
-    <ClInclude Include="src\Ludus\Core\Log.h" />
     <ClInclude Include="src\Ludus\Events\MouseEvent.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\ldpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ldpch.cpp" />
     <ClCompile Include="src\Ludus\Core\Application.cpp" />
-    <ClCompile Include="src\Ludus\Core\Input.cpp" />
     <ClCompile Include="src\Ludus\Core\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\ldpch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -26,6 +26,9 @@ project "Ludus"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "ldpch.h"
+	pchsource "Ludus/scr/ldpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
@@ -43,7 +46,6 @@ project "Ludus"
 
     defines
     {
-        "LD_PLATFORM_WINDOWS",
         "LD_BUILD_DLL"
     }
 
@@ -98,11 +100,7 @@ project "Sandbox"
 	filter "system:windows"
 		systemversion "latest"
 
-	defines
-	{
-		"LD_PLATFORM_WINDOWS"
-	}
-		
+			
 	filter "configurations:Debug"
 		defines "LD_DEBUG"
 		runtime "Debug"

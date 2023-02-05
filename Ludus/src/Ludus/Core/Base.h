@@ -47,3 +47,9 @@ namespace Ludus {
 
 #include "Ludus/Core/Log.h"
 #include "Ludus/Core/Assert.h"
+
+#ifdef LD_BUILD_DLL
+#define LUDUS_API __declspec(dllexport)
+#else
+#define LUDUS_API __declspec(dllimport)
+#endif // LD_BUILD_DLL
